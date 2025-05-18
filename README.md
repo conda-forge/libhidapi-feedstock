@@ -14,6 +14,7 @@ Development: https://github.com/libusb/hidapi
 HIDAPI is a multi-platform library which allows an application to interface with USB and Bluetooth HID-Class devices on Windows, Linux, FreeBSD, and macOS.
 
 
+
     Windows (using hid.dll)
     Linux/hidraw (using the Kernel's hidraw driver)
     libusb (using libusb-1.0 - Linux/BSD/other UNIX-like systems)
@@ -22,7 +23,9 @@ HIDAPI is a multi-platform library which allows an application to interface with
 On Linux, either the hidraw or the libusb back-end can be used. There are tradeoffs, and the functionality supported is slightly different. Both are built by default. It is up to the application linking to hidapi to choose the backend at link time by linking to either libhidapi-libusb or libhidapi-hidraw.
 Note that you will need to install an udev rule file with your application for unprivileged users to be able to access HID devices with hidapi. Refer to the 69-hid.rules file in the udev directory for an example.
 
+
 This back-end uses the hidraw interface in the Linux kernel, and supports both USB and Bluetooth HID devices. It requires kernel version at least 2.6.39 to build. In addition, it will only communicate with devices which have hidraw nodes associated with them. Keyboards, mice, and some other devices which are blacklisted from having hidraw nodes will not work. Fortunately, for nearly all the uses of hidraw, this is not a problem.
+
 
 This back-end uses libusb-1.0 to communicate directly to a USB device. This back-end will of course not work with Bluetooth devices.
 
