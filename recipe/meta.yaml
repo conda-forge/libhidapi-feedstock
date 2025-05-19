@@ -1,4 +1,4 @@
-{% set version = "0.14.0" %}
+{% set version = "0.15.0" %}
 
 package:
   name: libhidapi
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/libusb/hidapi/archive/refs/tags/hidapi-{{ version }}.tar.gz
-  sha256: a5714234abe6e1f53647dd8cba7d69f65f71c558b7896ed218864ffcf405bcbd
+  sha256: 5d84dec684c27b97b921d2f3b73218cb773cf4ea915caee317ac8fc73cef8136
 
 build:
   number: 0
@@ -15,7 +15,8 @@ build:
 
 requirements:
   build:
-    - {{ compiler('c') }}
+    - {{ compiler("c") }}
+    - {{ stdlib("c") }}
     - cmake
     - pkg-config
     - ninja
@@ -64,7 +65,8 @@ about:
 
     ### Linux/hidraw (linux/hid.c):
 
-    This back-end uses the hidraw interface in the Linux kernel, and supports both USB and Bluetooth HID devices. It requires kernel version at least 2.6.39 to build. In addition, it will only communicate with devices which have hidraw nodes associated with them. Keyboards, mice, and some other devices which are blacklisted from having hidraw nodes will not work. Fortunately, for nearly all the uses of hidraw, this is not a problem.
+    This back-end uses the hidraw interface in the Linux kernel, and supports both USB and Bluetooth HID devices. It requires kernel version at least 2.6.39 to build. In addition, it will only communicate with devices which have hidraw nodes associated with them. Keyboards, mice, and some other devices which are blacklisted
+    from having hidraw nodes will not work. Fortunately, for nearly all the uses of hidraw, this is not a problem.
 
     ### Linux/FreeBSD/libusb (libusb/hid.c):
 
